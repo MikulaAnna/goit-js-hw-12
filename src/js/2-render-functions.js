@@ -1,4 +1,4 @@
-import { refs, lightbox } from '../main.js';
+import { refs, lightbox, showLoadMore } from '../main.js';
 
 function imageTemplate({
   webformatURL,
@@ -42,4 +42,5 @@ export function renderGallery(arr) {
   const markup = imagesTemplate(arr);
   refs.gallery.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
+  showLoadMore();
 }

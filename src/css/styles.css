@@ -72,7 +72,7 @@ input {
   background: #fff;
   padding-left: 16px;
   padding-right: 16px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
@@ -80,7 +80,7 @@ input {
 }
 
 input::placeholder {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
@@ -96,7 +96,7 @@ input::placeholder {
   width: 91px;
   height: 40px;
   background: #4e75ff;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
@@ -110,7 +110,7 @@ input::placeholder {
 }
 
 .loadMore {
-  width: 120px;
+  width: 150px;
   margin-top: 25px;
 }
 
@@ -159,7 +159,7 @@ img {
 .title {
   display: flex;
   justify-content: center;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 10px;
   line-height: 1.33333;
@@ -170,7 +170,7 @@ img {
 .info {
   display: flex;
   justify-content: center;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 10px;
   line-height: 2;

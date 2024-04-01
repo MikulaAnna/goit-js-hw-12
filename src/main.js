@@ -41,7 +41,7 @@ async function onFormSubmit(e) {
 
   if (!searchQuery) {
     deleteLoader();
-    hideLoadMore();
+
     iziToast.error({
       message: 'Please enter a request',
       position: 'topRight',
@@ -62,13 +62,15 @@ async function onFormSubmit(e) {
       return;
     }
     maxPage = Math.ceil(data.totalHits / perPage);
-    renderGallery(data.hits);
+	  renderGallery(data.hits);
+	  showLoadMore();
   } catch (err) {
     console.log(err);
+    hideLoadMore();
   }
-
-  deleteLoader();
   checkBtnStatus();
+  deleteLoader();
+
   refs.formEl.reset();
 }
 
@@ -77,17 +79,18 @@ async function onLoadMoreClick() {
   createLoader();
   try {
     const data = await getImages(searchQuery, currentPage);
-    renderGallery(data.hits);
+	  renderGallery(data.hits);
+	  showLoadMore();
   } catch (err) {
     console.log(err);
+    hideLoadMore();
   }
-
-  myScroll();
   checkBtnStatus();
+  myScroll();
   deleteLoader();
 }
 
-function showLoadMore() {
+export function showLoadMore() {
   refs.btnLoadMore.classList.remove('is-hidden');
 }
 function hideLoadMore() {
