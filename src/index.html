@@ -4,15 +4,28 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Home work 10</title>
+	<title>Home work 12</title>
 	<link rel="stylesheet" href="./css/styles.css" />
+
 </head>
 
 <body>
-	<ul class="start-list">
-		<li><a href="1-timer.html">Timer</a></li>
-		<li><a href="2-snackbar.html">Snackbar</a></li>
-	</ul>
+	<main>
+	<form class="form">
+		<input class="input" type="text" placeholder="Search images..." name="request" required />
+	
+		<button type="submit" class="submit btn">Search</button>
+	</form>
+	<div class="loader"></div>
+	<ul class="gallery"></ul>
+	<div class="loarMoreContainer">
+		<button type="button" class="loadMore btn">Load more</button>
+	</div>
+
+
+	</main>
+
+	<script type="module" src="./main.js"></script>
 </body>
 
 </html>
