@@ -38,10 +38,10 @@ async function onFormSubmit(e) {
   searchQuery = e.target.elements.request.value.trim();
   refs.gallery.innerHTML = '';
   currentPage = 1;
-
+  hideLoadMore();
   if (!searchQuery) {
     deleteLoader();
-
+  
     iziToast.error({
       message: 'Please enter a request',
       position: 'topRight',
@@ -54,6 +54,7 @@ async function onFormSubmit(e) {
     console.log(data);
     if (data.hits.length === 0) {
       deleteLoader();
+      hideLoadMore();
       iziToast.error({
         message:
           'Sorry, there are no images matching your search query. Please try again!',
@@ -62,32 +63,34 @@ async function onFormSubmit(e) {
       return;
     }
     maxPage = Math.ceil(data.totalHits / perPage);
-	  renderGallery(data.hits);
-	  showLoadMore();
+    renderGallery(data.hits);
+    showLoadMore();
   } catch (err) {
     console.log(err);
     hideLoadMore();
   }
-  checkBtnStatus();
-  deleteLoader();
 
+  deleteLoader();
   refs.formEl.reset();
+  checkBtnStatus();
 }
 
 async function onLoadMoreClick() {
   currentPage += 1;
-  createLoader();
+	createLoader();
+	  hideLoadMore();
   try {
     const data = await getImages(searchQuery, currentPage);
-	  renderGallery(data.hits);
-	  showLoadMore();
+    renderGallery(data.hits);
+    showLoadMore();
   } catch (err) {
     console.log(err);
     hideLoadMore();
   }
-  checkBtnStatus();
+
   myScroll();
   deleteLoader();
+  checkBtnStatus();
 }
 
 export function showLoadMore() {
